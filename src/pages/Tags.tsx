@@ -99,10 +99,6 @@ export default function Tags() {
     setModalOpen(true);
   };
 
-  const handleOpen = (tag: Tag) => {
-    setSelectedTag(tag);
-  };
-
   const openCreate = () => {
     setEditingTag(null);
     setModalOpen(true);

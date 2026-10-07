@@ -1,7 +1,5 @@
 import { api } from '../../lib/api';
 
-import type { GetTagsResponse } from '../types/get-tags.type';
-
 import type {
   CreateTagPayload,
   CreateTagResponse,
@@ -11,9 +9,11 @@ import type {
   UpdateTagPayload,
   UpdateTagResponse,
 } from '../types/update-tag.type';
+import type { Tag } from '../types/tag.type';
 
-export const getTags = async (): Promise<GetTagsResponse> => {
-  const response = await api.get<GetTagsResponse>('/tags');
+export const getTags = async (): Promise<Tag[]> => {
+  const response = await api.get<Tag[]>('/tags');
+  console.log('responsetagsservice', response);
 
   return response.data;
 };

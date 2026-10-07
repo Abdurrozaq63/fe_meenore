@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
-import { type SignInPayload, type SignInResponse } from '../types/sign-in.type';
+import { type SignInPayload } from '../types/sign-in.type';
 import { signIn } from '../services/auth.service';
 
 export const useSignIn = () => {

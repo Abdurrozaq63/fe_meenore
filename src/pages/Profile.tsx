@@ -110,6 +110,7 @@ export default function Profile() {
         setTotalSessions(sessionsResponse.meta.total);
 
         setTotalFav(favouriteResponse.data.length);
+        console.log('tag profile', tagsResponse);
 
         setTotalTags(tagsResponse.length);
       } catch (err: any) {

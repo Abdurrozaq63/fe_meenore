@@ -24,12 +24,7 @@ export default function Detail() {
 
   const [favouriteState, setFavouriteState] = useState(session?.isFavourite);
 
-  const {
-    updateFavourite,
-    loadingFavourite,
-    errorFavourite,
-    clearErrorFavourite,
-  } = useFavouriteSession();
+  const { updateFavourite, loadingFavourite } = useFavouriteSession();
 
   const { remove, loading: deleting, error: deleteError } = useDeleteSession();
 

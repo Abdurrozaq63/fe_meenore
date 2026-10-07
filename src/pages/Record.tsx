@@ -14,8 +14,6 @@ import { useProcessSession } from '../record/hooks/use-process-session.hook';
 import { getTags } from '../tags/services/tags.service';
 import type { Tag } from '../tags/types/tag.type';
 
-type Mode = 'idle' | 'upload' | 'mic';
-
 type Stage = 'input' | 'processing' | 'done';
 
 function ProcessingDots() {
@@ -95,8 +93,6 @@ export default function Record() {
 
   const { process, loading, error, clearError } = useProcessSession();
 
-  const [mode, setMode] = useState<Mode>('idle');
-
   const [stage, setStage] = useState<Stage>('input');
 
   const [tags, setTags] = useState<Tag[]>([]);
@@ -160,7 +156,6 @@ export default function Record() {
         setTagError('');
 
         const result = await getTags();
-        console.log(result);
 
         setTags(result);
       } catch (err) {
@@ -247,8 +242,6 @@ export default function Record() {
       return;
     }
 
-    setMode('upload');
-
     setFileName(file.name);
 
     await processAudioFile(file);
@@ -319,8 +312,6 @@ export default function Record() {
       mediaStreamRef.current = stream;
 
       recorder.start();
-
-      setMode('mic');
 
       setRecording(true);
 
@@ -407,8 +398,6 @@ export default function Record() {
     mediaRecorderRef.current = null;
 
     setRecording(false);
-
-    setMode('idle');
 
     setStage('input');
 

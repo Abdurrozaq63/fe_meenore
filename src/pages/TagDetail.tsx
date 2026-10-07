@@ -8,8 +8,6 @@ import ModalConfirmation from '../components/ModalConfirmation';
 import { useGetTags } from '../tags/hooks/use-get-tags.hook';
 import { useTagSessions } from '../tags/hooks/use-tag-sessions.hook';
 
-import type { Tag } from '../tags/types/tag.type';
-
 const TYPE_CONFIG = {
   work: {
     label: 'Work',
@@ -89,8 +87,6 @@ export default function TagDetail() {
   const { id } = useParams<{
     id: string;
   }>();
-
-  const navigate = useNavigate();
 
   const { tags, loading: tagsLoading } = useGetTags();
 

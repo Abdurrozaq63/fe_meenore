@@ -11,7 +11,7 @@ export default function SignIn() {
     password: '',
   });
 
-  const { loginUser, loading, error } = useSignIn();
+  const { loginUser, loading } = useSignIn();
 
   const { refreshUser } = useAuth();
 
