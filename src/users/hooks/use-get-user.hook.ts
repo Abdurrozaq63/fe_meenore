@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { getUser } from '../services/users.service';
+import { getCurrentUser } from '../services/users.service';
 
 import type { User } from '../types/user.type';
 
@@ -23,7 +23,7 @@ export const useGetUser = (userId: string | undefined) => {
       setLoading(true);
       setError(null);
 
-      const result = await getUser(userId);
+      const result = await getCurrentUser();
 
       setData(result);
     } catch (err: any) {
